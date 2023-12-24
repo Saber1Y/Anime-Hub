@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import AnimeCard from '@/components/AnimeCard'
 import LoadMore from '@/components/Loadmore'
-import { data } from './_data'
+
 import { fetchAnime } from './action'
 
 export default async function Home() {
 
-  await fetchAnime();
+  const data = await fetchAnime(1);
   return (
     <main className="sm:p-16 py-16 px-8 flex flex-col gap-10">
       <h2 className="text-3xl text-white font-bold">Explore Anime</h2>
