@@ -1,11 +1,21 @@
-import React from 'react'
+import Image from "next/image";
 
-const Loadmore = () => {
+function LoadMore() {
   return (
-    <div>
-      Loadmore
-    </div>
-  )
+    <>
+      <section className="flex justify-center items-center w-full">
+        <div>
+          <Image
+            src="./spinner.svg"
+            alt="spinner"
+            width={56}
+            height={56}
+            className="object-contain"
+          />
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default Loadmore
+export default LoadMore;
