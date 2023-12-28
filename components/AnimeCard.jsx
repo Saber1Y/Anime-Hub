@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import { MotionDiv } from './MotionDiv';
+
 
 const AnimeProp = {
   id: '',
@@ -20,9 +22,27 @@ const Prop = {
 };
 
 
-const AnimeCard = ({ anime }) => {
+const AnimeCard = ({ anime, index }) => {
+
+  const variants = {
+   hidden:{ opacity: 0 },
+   visible:{ opacity: 1}
+};
+
   return (
-    <div className="max-w-sm rounded relative w-full">
+    <MotionDiv className="max-w-sm rounded relative w-full"
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      transition={
+        {
+          delay: index * 0.30,
+          ease: 'easeInOut',
+          duration: 0.5
+        }
+      }
+      viewport={{ amount: 0 }}
+    >
     <div className="relative w-full h-[37vh]">
       <Image
         src={`https://shikimori.one${anime.image.original}`}
@@ -67,7 +87,7 @@ const AnimeCard = ({ anime }) => {
         </div>
       </div>
     </div>
-  </div>
+  </MotionDiv>
   )
 }
 
